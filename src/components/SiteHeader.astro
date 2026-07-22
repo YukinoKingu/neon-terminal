@@ -1,0 +1,26 @@
+---
+interface Props {
+  pathname: string
+}
+
+const { pathname } = Astro.props
+const isCp2020 = pathname.startsWith('/cp2020')
+---
+
+<header class="site-header">
+  <div class="shell site-header__inner">
+    <a class="brand" href="/" aria-label="NEON TERMINAL — главная">
+      <span class="brand__prompt" aria-hidden="true">&gt;</span>
+      <span>NEON</span><span class="brand__slash">//</span><span>TERMINAL</span>
+      <span class="brand__cursor" aria-hidden="true">_</span>
+    </a>
+    <nav class="site-nav" aria-label="Основная навигация">
+      <a class:list={['site-nav__link', { 'is-active': !isCp2020 }]} href="/">Главная</a>
+      <a class:list={['site-nav__link', { 'is-active': isCp2020 }]} href="/cp2020/">Cyberpunk 2020</a>
+    </nav>
+    <span class="system-status" aria-label="Статус системы: онлайн">
+      <span class="system-status__light" aria-hidden="true"></span>
+      online
+    </span>
+  </div>
+</header>

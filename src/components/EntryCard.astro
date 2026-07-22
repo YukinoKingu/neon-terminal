@@ -1,0 +1,20 @@
+---
+interface Props {
+  href: string
+  title: string
+  titleEn: string
+  summary: string
+  edition: string
+}
+
+const { href, title, titleEn, summary, edition } = Astro.props
+---
+
+<a class="terminal-card terminal-card--entry" href={href}>
+  <span class="terminal-card__body">
+    <span class="terminal-card__title">{title}</span>
+    <span class="terminal-card__title-en">{titleEn}</span>
+    <span class="terminal-card__description">{summary}</span>
+  </span>
+  <span class="terminal-card__meta">v{edition}</span>
+</a>

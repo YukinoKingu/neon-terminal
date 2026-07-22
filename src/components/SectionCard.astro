@@ -1,0 +1,19 @@
+---
+import type { Cp2020Section } from '../data/cp2020-sections'
+
+interface Props {
+  section: Cp2020Section
+}
+
+const { section } = Astro.props
+---
+
+<a class="terminal-card terminal-card--section" href={`/cp2020/${section.slug}/`}>
+  <span class="terminal-card__code" aria-hidden="true">[{section.code}]</span>
+  <span class="terminal-card__body">
+    <span class="terminal-card__title">{section.title}</span>
+    <span class="terminal-card__title-en">{section.titleEn}</span>
+    <span class="terminal-card__description">{section.description}</span>
+  </span>
+  <span class="terminal-card__arrow" aria-hidden="true">-&gt;</span>
+</a>

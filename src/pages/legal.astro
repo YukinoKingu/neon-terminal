@@ -1,0 +1,42 @@
+---
+import Breadcrumbs from '../components/Breadcrumbs.astro'
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout title="Правовая информация">
+  <article class="article-shell page-section">
+    <Breadcrumbs items={[
+      { label: 'Главная', href: '/' },
+      { label: 'Правовая информация' },
+    ]} />
+
+    <header class="article-header">
+      <p class="eyebrow">&gt; project/legal_status</p>
+      <h1 class="article-header__title">Правовая информация</h1>
+      <p class="article-header__title-en">Unofficial fan reference</p>
+    </header>
+
+    <div class="prose">
+      <p>
+        NEON//TERMINAL является бесплатным неофициальным справочным проектом и не связан с
+        R. Talsorian Games или CD PROJEKT RED.
+      </p>
+      <p>
+        Проект не публикует сканы, официальные иллюстрации или дословные переводы книги.
+        Описания создаются заново как краткие справочные материалы. Полные правила следует
+        читать в официальной книге Cyberpunk 2020.
+      </p>
+      <blockquote>
+        This project is unofficial content provided under the Homebrew Content Policy of
+        R. Talsorian Games and is not approved or endorsed by RTG. This content references
+        materials that are the property of R. Talsorian Games and its licensees.
+      </blockquote>
+      <p>
+        Актуальная политика правообладателя доступна на странице
+        <a href="https://rtalsoriangames.com/homebrew-content-policy/" rel="external">
+          Homebrew Content Policy
+        </a>.
+      </p>
+    </div>
+  </article>
+</Layout>

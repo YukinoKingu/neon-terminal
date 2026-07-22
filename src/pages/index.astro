@@ -1,11 +1,36 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from '../layouts/Layout.astro'
 ---
 
 <Layout>
-	<Welcome />
+  <section class="shell hero">
+    <div>
+      <p class="eyebrow">&gt; public_access // knowledge_base</p>
+      <h1 class="hero__title">Справочник тёмного будущего</h1>
+      <p class="hero__lead">
+        Русскоязычная база для ручного создания персонажа в Cyberpunk 2020. Кратко,
+        структурированно и с оригинальными английскими названиями.
+      </p>
+      <div class="hero__actions">
+        <a class="terminal-button" href="/cp2020/">Открыть Cyberpunk 2020 <span aria-hidden="true">-&gt;</span></a>
+        <a class="terminal-button" href="/legal/">Статус проекта</a>
+      </div>
+    </div>
+
+    <aside class="terminal-panel" aria-label="Состояние базы данных">
+      <div class="terminal-panel__header">
+        <span>system_status</span>
+        <span>read_only</span>
+      </div>
+      <div class="terminal-panel__content">
+        <dl class="status-list">
+          <div><dt>Система</dt><dd>CP2020</dd></div>
+          <div><dt>Редакция</dt><dd>2.01</dd></div>
+          <div><dt>Язык</dt><dd>RU + EN</dd></div>
+          <div><dt>Источник</dt><dd>CORE ONLY</dd></div>
+          <div><dt>Состояние</dt><dd>FOUNDATION</dd></div>
+        </dl>
+      </div>
+    </aside>
+  </section>
 </Layout>

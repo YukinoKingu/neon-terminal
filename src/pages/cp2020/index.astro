@@ -1,0 +1,26 @@
+---
+import SectionCard from '../../components/SectionCard.astro'
+import { cp2020Sections } from '../../data/cp2020-sections'
+import Layout from '../../layouts/Layout.astro'
+---
+
+<Layout title="Cyberpunk 2020" description="Разделы справочника по созданию персонажа Cyberpunk 2020 редакции 2.01.">
+  <section class="shell page-section">
+    <p class="eyebrow">&gt; systems/cp2020 // edition 2.01</p>
+    <h1 class="page-title">Cyberpunk 2020</h1>
+    <p class="page-lead">
+      Справочник использует только основную книгу правил. Материалы дополнений и Cyberpunk RED
+      хранятся отдельно и не смешиваются с этой редакцией.
+    </p>
+  </section>
+
+  <section class="shell page-section--compact" aria-labelledby="sections-heading">
+    <div class="section-heading">
+      <h2 id="sections-heading">Разделы базы</h2>
+      <span>{cp2020Sections.length} nodes available</span>
+    </div>
+    <div class="card-grid">
+      {cp2020Sections.map(section => <SectionCard section={section} />)}
+    </div>
+  </section>
+</Layout>

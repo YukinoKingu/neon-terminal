@@ -1,0 +1,72 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content'
+import Breadcrumbs from '../../../components/Breadcrumbs.astro'
+import EntryCard from '../../../components/EntryCard.astro'
+import {
+  cp2020Sections,
+  type Cp2020CollectionName,
+  type Cp2020Section,
+} from '../../../data/cp2020-sections'
+import Layout from '../../../layouts/Layout.astro'
+
+type Cp2020Entry = CollectionEntry<Cp2020CollectionName>
+
+interface Props {
+  section: Cp2020Section
+  entries: Cp2020Entry[]
+}
+
+export async function getStaticPaths() {
+  return Promise.all(cp2020Sections.map(async (section) => {
+    const entries = await getCollection(
+      section.collection,
+      ({ data }) => data.status === 'published',
+    )
+
+    entries.sort((left, right) =>
+      left.data.order - right.data.order
+      || left.data.title.localeCompare(right.data.title, 'ru'),
+    )
+
+    return {
+      params: { section: section.slug },
+      props: { section, entries },
+    }
+  }))
+}
+
+const { section, entries } = Astro.props
+---
+
+<Layout title={section.title} description={section.description}>
+  <section class="shell page-section">
+    <Breadcrumbs items={[
+      { label: 'Главная', href: '/' },
+      { label: 'Cyberpunk 2020', href: '/cp2020/' },
+      { label: section.title },
+    ]} />
+    <p class="eyebrow">&gt; cp2020/{section.slug} // {entries.length} records</p>
+    <h1 class="page-title">{section.title}</h1>
+    <p class="page-lead">{section.titleEn} — {section.description}</p>
+  </section>
+
+  <section class="shell page-section--compact" aria-label={`Материалы раздела ${section.title}`}>
+    {entries.length > 0 ? (
+      <div class="card-grid">
+        {entries.map(entry => (
+          <EntryCard
+            href={`/cp2020/${section.slug}/${entry.id}/`}
+            title={entry.data.title}
+            titleEn={entry.data.titleEn}
+            summary={entry.data.summary}
+            edition={entry.data.edition}
+          />
+        ))}
+      </div>
+    ) : (
+      <div class="empty-state">
+        <p>&gt; В этом узле пока нет опубликованных записей. Структура готова к наполнению.</p>
+      </div>
+    )}
+  </section>
+</Layout>
