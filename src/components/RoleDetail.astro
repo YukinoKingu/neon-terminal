@@ -1,0 +1,113 @@
+---
+import type { CollectionEntry } from 'astro:content'
+
+interface Props {
+  entry: CollectionEntry<'cp2020Roles'>
+}
+
+const { entry } = Astro.props
+const { data } = entry
+const portraitCode = data.titleEn
+  .split(/\s+/)
+  .map(part => part[0])
+  .join('')
+  .slice(0, 3)
+  .toUpperCase()
+const sourceLabel = data.source === 'core-rulebook'
+  ? 'Основная книга правил'
+  : data.source
+const abilityRanks = Array.from(
+  { length: data.specialAbility.rank.max - data.specialAbility.rank.min + 1 },
+  (_, index) => data.specialAbility.rank.min + index,
+)
+---
+
+<header class="role-hero">
+  <div class="role-portrait" aria-label={`Заглушка портрета роли ${data.title}`}>
+    <span class="role-portrait__status">IMAGE://PENDING</span>
+    <span class="role-portrait__code" aria-hidden="true">{portraitCode}</span>
+    <span class="role-portrait__scan" aria-hidden="true"></span>
+    <span class="role-portrait__id">ROLE/{entry.id.toUpperCase()}</span>
+  </div>
+
+  <div class="role-hero__content">
+    <p class="eyebrow">&gt; role dossier / {entry.id}</p>
+    <h1 class="role-hero__title">{data.title}</h1>
+    <p class="role-hero__title-en">{data.titleEn}</p>
+    <p class="role-hero__summary">{data.summary}</p>
+
+    <dl class="role-facts">
+      <div>
+        <dt>Система</dt>
+        <dd>Cyberpunk 2020</dd>
+      </div>
+      <div>
+        <dt>Редакция</dt>
+        <dd>{data.edition}</dd>
+      </div>
+      <div>
+        <dt>Источник</dt>
+        <dd>{sourceLabel}</dd>
+      </div>
+    </dl>
+  </div>
+</header>
+
+<div class="role-layout">
+  <aside class="role-sidebar">
+    <nav class="role-toc" aria-label="Содержание страницы">
+      <p class="role-toc__label">Навигация</p>
+      <a href="#special-ability">01 // Способность</a>
+      <a href="#progression">02 // Развитие</a>
+      <a href="#career-skills">03 // Навыки</a>
+      <a href="#description">04 // Описание</a>
+    </nav>
+  </aside>
+
+  <div class="role-main">
+    <section id="special-ability" class="role-ability" aria-labelledby="special-ability-title">
+      <p class="role-section-code">SPECIAL_ABILITY</p>
+      <h2 id="special-ability-title">{data.specialAbility.title}</h2>
+      <p class="role-ability__title-en">{data.specialAbility.titleEn}</p>
+      <p class="role-ability__description">{data.specialAbility.description}</p>
+    </section>
+
+    <section id="progression" class="role-progression" aria-labelledby="progression-title">
+      <div class="role-section-heading">
+        <p class="role-section-code">ABILITY_RANK</p>
+        <h2 id="progression-title">Развитие способности</h2>
+      </div>
+      <div class="role-rank-scale" aria-label={`Ранги способности от ${data.specialAbility.rank.min} до ${data.specialAbility.rank.max}`}>
+        {abilityRanks.map(rank => <span class="role-rank-scale__item">{rank}</span>)}
+      </div>
+      <p class="role-progression__range">
+        Ранг {data.specialAbility.rank.min}–{data.specialAbility.rank.max}
+      </p>
+      <p class="role-progression__description">{data.specialAbility.rank.progression}</p>
+    </section>
+
+    <section id="career-skills" class="role-career-skills" aria-labelledby="career-skills-title">
+      <div class="role-section-heading">
+        <p class="role-section-code">CAREER_SKILLS</p>
+        <h2 id="career-skills-title">Профессиональные навыки</h2>
+      </div>
+      {data.careerSkills.length > 0 ? (
+        <ol class="role-skill-list">
+          {data.careerSkills.map((skill, index) => <li><span>{String(index + 1).padStart(2, '0')}</span>{skill}</li>)}
+        </ol>
+      ) : (
+        <p class="role-career-skills__empty">Список навыков ожидает проверки по источнику.</p>
+      )}
+    </section>
+
+    <section id="description" class="role-description" aria-labelledby="description-title">
+      <div class="role-section-heading">
+        <p class="role-section-code">ROLE_PROFILE</p>
+        <h2 id="description-title">Описание роли</h2>
+      </div>
+      <div class="prose">
+        <slot />
+      </div>
+    </section>
+  </div>
+</div>

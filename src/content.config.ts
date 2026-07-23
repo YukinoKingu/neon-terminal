@@ -5,6 +5,8 @@ import { z } from 'astro/zod'
 const system = z.literal('cp2020')
 const edition = z.literal('2.01')
 const publicationStatus = z.enum(['draft', 'review', 'published'])
+const verificationStatus = z.enum(['unverified', 'source-checked', 'reviewed'])
+const statCode = z.enum(['ATTR', 'BODY', 'COOL', 'EMP', 'INT', 'LUCK', 'MA', 'REF', 'TECH'])
 
 const commonFields = {
   title: z.string().min(1),
@@ -14,6 +16,7 @@ const commonFields = {
   edition,
   source: z.literal('core-rulebook'),
   status: publicationStatus.default('draft'),
+  verification: verificationStatus.default('unverified'),
   aliases: z.array(z.string()).default([]),
   tags: z.array(z.string()).default([]),
   order: z.number().int().nonnegative().default(100),
@@ -38,6 +41,12 @@ const cp2020Roles = defineCollection({
     specialAbility: z.object({
       title: z.string().min(1),
       titleEn: z.string().min(1),
+      description: z.string().min(1),
+      rank: z.object({
+        min: z.number().int().min(1),
+        max: z.number().int().max(10),
+        progression: z.string().min(1),
+      }),
     }),
     careerSkills: z.array(z.string()).default([]),
   }),
@@ -55,9 +64,9 @@ const cp2020Skills = defineCollection({
   loader: contentLoader('skills'),
   schema: z.object({
     ...commonFields,
-    stat: z.string().min(1),
-    difficultyMultiplier: z.number().int().positive().default(1),
-    isCareerSkillFor: z.array(z.string()).default([]),
+    stat: statCode,
+    difficultyMultiplier: z.number().int().positive().optional(),
+    isCareerSkillFor: z.array(z.string()).optional(),
   }),
 })
 
@@ -65,11 +74,11 @@ const cp2020Lifepath = defineCollection({
   loader: contentLoader('lifepath'),
   schema: z.object({
     ...commonFields,
-    die: z.number().int().positive(),
+    die: z.number().int().positive().optional(),
     entries: z.array(z.object({
       range: z.string().min(1),
       result: z.string().min(1),
-    })),
+    })).optional(),
   }),
 })
 

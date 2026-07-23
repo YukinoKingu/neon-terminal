@@ -20,7 +20,7 @@ export async function getStaticPaths() {
   return Promise.all(cp2020Sections.map(async (section) => {
     const entries = await getCollection(
       section.collection,
-      ({ data }) => data.status === 'published',
+      ({ data }) => data.status === 'published' || import.meta.env.DEV,
     )
 
     entries.sort((left, right) =>

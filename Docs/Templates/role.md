@@ -6,6 +6,7 @@ system: cp2020
 edition: "2.01"
 source: core-rulebook
 status: draft
+verification: unverified
 aliases: []
 tags:
   - роль
@@ -13,6 +14,11 @@ order: 100
 specialAbility:
   title: Русское название способности
   titleEn: English Ability Name
+  description: Краткое описание способности своими словами.
+  rank:
+    min: 1
+    max: 10
+    progression: Как ранг влияет на способность.
 careerSkills: []
 ---
 

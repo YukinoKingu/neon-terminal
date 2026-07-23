@@ -6,14 +6,12 @@ system: cp2020
 edition: "2.01"
 source: core-rulebook
 status: draft
+verification: unverified
 aliases: []
 tags:
   - lifepath
 order: 100
-die: 10
-entries:
-  - range: "1"
-    result: Краткая оригинальная формулировка результата.
+# die и entries добавляются только после разрешения RTG и проверки источника.
 ---
 
 Краткое пояснение порядка использования таблицы.

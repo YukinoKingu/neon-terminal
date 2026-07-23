@@ -6,13 +6,13 @@ system: cp2020
 edition: "2.01"
 source: core-rulebook
 status: draft
+verification: unverified
 aliases: []
 tags:
   - навык
 order: 100
 stat: stat-id
-difficultyMultiplier: 1
-isCareerSkillFor: []
+# difficultyMultiplier и isCareerSkillFor добавляются после проверки источника.
 ---
 
 Краткое оригинальное описание области применения навыка.

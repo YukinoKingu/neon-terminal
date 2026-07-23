@@ -1,6 +1,7 @@
 ---
 import { getCollection, render, type CollectionEntry } from 'astro:content'
 import Breadcrumbs from '../../../components/Breadcrumbs.astro'
+import RoleDetail from '../../../components/RoleDetail.astro'
 import {
   cp2020Sections,
   type Cp2020CollectionName,
@@ -19,7 +20,7 @@ export async function getStaticPaths() {
   const sectionPaths = await Promise.all(cp2020Sections.map(async (section) => {
     const entries = await getCollection(
       section.collection,
-      ({ data }) => data.status === 'published',
+      ({ data }) => data.status === 'published' || import.meta.env.DEV,
     )
 
     return entries.map(entry => ({
@@ -33,10 +34,11 @@ export async function getStaticPaths() {
 
 const { section, entry } = Astro.props
 const { Content } = await render(entry)
+const isRole = entry.collection === 'cp2020Roles'
 ---
 
 <Layout title={entry.data.title} description={entry.data.summary}>
-  <article class="article-shell page-section">
+  <article class:list={['page-section', isRole ? 'role-shell' : 'article-shell']}>
     <Breadcrumbs items={[
       { label: 'Главная', href: '/' },
       { label: 'Cyberpunk 2020', href: '/cp2020/' },
@@ -44,20 +46,30 @@ const { Content } = await render(entry)
       { label: entry.data.title },
     ]} />
 
-    <header class="article-header">
-      <p class="eyebrow">&gt; record/{entry.id}</p>
-      <h1 class="article-header__title">{entry.data.title}</h1>
-      <p class="article-header__title-en">{entry.data.titleEn}</p>
-      <div class="article-meta">
-        <span>Cyberpunk 2020</span>
-        <span>редакция {entry.data.edition}</span>
-        <span>основная книга правил</span>
-      </div>
-    </header>
+    {isRole
+      ? (
+          <RoleDetail entry={entry}>
+            <Content />
+          </RoleDetail>
+        )
+      : (
+          <>
+            <header class="article-header">
+              <p class="eyebrow">&gt; record/{entry.id}</p>
+              <h1 class="article-header__title">{entry.data.title}</h1>
+              <p class="article-header__title-en">{entry.data.titleEn}</p>
+              <div class="article-meta">
+                <span>Cyberpunk 2020</span>
+                <span>редакция {entry.data.edition}</span>
+                <span>основная книга правил</span>
+              </div>
+            </header>
 
-    <div class="prose">
-      <Content />
-    </div>
+            <div class="prose">
+              <Content />
+            </div>
+          </>
+        )}
 
     <aside class="legal-notice">
       Это неофициальная краткая справочная запись. Для полного текста и контекста используйте
