@@ -3,10 +3,45 @@ import type { CollectionEntry } from 'astro:content'
 
 interface Props {
   entry: CollectionEntry<'cp2020Roles'>
+  skills: CollectionEntry<'cp2020Skills'>[]
 }
 
-const { entry } = Astro.props
+const { entry, skills } = Astro.props
 const { data } = entry
+const normalizeSkillName = (name: string) => name
+  .toLocaleLowerCase('ru-RU')
+  .replace(/[«»"'().,]/g, '')
+  .replace(/\s+/g, ' ')
+  .trim()
+const resolveSkill = (name: string) => {
+  const normalizedName = normalizeSkillName(name)
+  return skills.find(({ data: skillData }) => [skillData.title, ...skillData.aliases]
+    .some(alias => normalizeSkillName(alias) === normalizedName))
+}
+const careerSkills = data.careerSkills.map((name) => {
+  if (name === 'Драка или Боевые искусства') {
+    return {
+      prefix: '',
+      separator: ' или ',
+      links: ['Драка', 'Боевые искусства'].map(label => ({ label, skill: resolveSkill(label) })),
+    }
+  }
+
+  if (name.startsWith('Любые 3 из навыков: ')) {
+    const prefix = 'Любые 3 из навыков: '
+    return {
+      prefix,
+      separator: ', ',
+      links: name.slice(prefix.length).split(', ').map(label => ({ label, skill: resolveSkill(label) })),
+    }
+  }
+
+  return {
+    prefix: '',
+    separator: '',
+    links: [{ label: name, skill: resolveSkill(name) }],
+  }
+})
 const portraitCode = data.titleEn
   .split(/\s+/)
   .map(part => part[0])
@@ -16,10 +51,8 @@ const portraitCode = data.titleEn
 const sourceLabel = data.source === 'core-rulebook'
   ? 'Основная книга правил'
   : data.source
-const abilityRanks = Array.from(
-  { length: data.specialAbility.rank.max - data.specialAbility.rank.min + 1 },
-  (_, index) => data.specialAbility.rank.min + index,
-)
+const abilityRankDetails = [...data.specialAbility.rank.details]
+  .sort((first, second) => first.level - second.level)
 ---
 
 <header class="role-hero">
@@ -57,10 +90,9 @@ const abilityRanks = Array.from(
   <aside class="role-sidebar">
     <nav class="role-toc" aria-label="Содержание страницы">
       <p class="role-toc__label">Навигация</p>
-      <a href="#special-ability">01 // Способность</a>
-      <a href="#progression">02 // Развитие</a>
-      <a href="#career-skills">03 // Навыки</a>
-      <a href="#description">04 // Описание</a>
+      <a href="#special-ability">01 // Способность и ранги</a>
+      <a href="#career-skills">02 // Навыки</a>
+      <a href="#description">03 // Описание</a>
     </nav>
   </aside>
 
@@ -70,20 +102,18 @@ const abilityRanks = Array.from(
       <h2 id="special-ability-title">{data.specialAbility.title}</h2>
       <p class="role-ability__title-en">{data.specialAbility.titleEn}</p>
       <p class="role-ability__description">{data.specialAbility.description}</p>
-    </section>
-
-    <section id="progression" class="role-progression" aria-labelledby="progression-title">
-      <div class="role-section-heading">
-        <p class="role-section-code">ABILITY_RANK</p>
-        <h2 id="progression-title">Развитие способности</h2>
-      </div>
-      <div class="role-rank-scale" aria-label={`Ранги способности от ${data.specialAbility.rank.min} до ${data.specialAbility.rank.max}`}>
-        {abilityRanks.map(rank => <span class="role-rank-scale__item">{rank}</span>)}
-      </div>
       <p class="role-progression__range">
         Ранг {data.specialAbility.rank.min}–{data.specialAbility.rank.max}
       </p>
       <p class="role-progression__description">{data.specialAbility.rank.progression}</p>
+      <ol class="role-ability-ranks" aria-label="Эффекты рангов специальной способности">
+        {abilityRankDetails.map(({ level, effect }) => (
+          <li>
+            <span>РАНГ {String(level).padStart(2, '0')}</span>
+            <p>{effect}</p>
+          </li>
+        ))}
+      </ol>
     </section>
 
     <section id="career-skills" class="role-career-skills" aria-labelledby="career-skills-title">
@@ -93,7 +123,20 @@ const abilityRanks = Array.from(
       </div>
       {data.careerSkills.length > 0 ? (
         <ol class="role-skill-list">
-          {data.careerSkills.map((skill, index) => <li><span>{String(index + 1).padStart(2, '0')}</span>{skill}</li>)}
+          {careerSkills.map((careerSkill, index) => (
+            <li>
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              {careerSkill.prefix}
+              {careerSkill.links.map(({ label, skill }, linkIndex) => (
+                <span>
+                  {linkIndex > 0 && careerSkill.separator}
+                  {skill
+                    ? <a href={`/cp2020/skills/${skill.id}/`}>{label}</a>
+                    : label}
+                </span>
+              ))}
+            </li>
+          ))}
         </ol>
       ) : (
         <p class="role-career-skills__empty">Список навыков ожидает проверки по источнику.</p>

@@ -163,14 +163,16 @@ a:hover { color: var(--color-text-bright); }
 .role-hero__title { max-width: 14ch; margin: 0; color: var(--color-text-bright); font-size: clamp(2.5rem, 7vw, 5.5rem); line-height: 0.92; letter-spacing: -0.06em; text-shadow: 0 0 30px rgba(61, 255, 102, 0.16); }
 .role-hero__title-en { margin: 0.75rem 0 0; color: var(--color-accent); font-size: clamp(0.9rem, 2vw, 1.15rem); letter-spacing: 0.16em; text-transform: uppercase; }
 .role-hero__summary { max-width: 62ch; margin: 1.5rem 0 0; color: var(--color-muted); font-size: clamp(1rem, 2vw, 1.12rem); }
-.role-ability, .role-progression, .role-career-skills { padding: clamp(1.25rem, 3vw, 2rem); border: 1px solid var(--color-line); background: var(--color-panel); }
+.role-ability, .role-career-skills { padding: clamp(1.25rem, 3vw, 2rem); border: 1px solid var(--color-line); background: var(--color-panel); }
 .role-ability__title-en { margin: 0.35rem 0 0; color: var(--color-accent); font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase; }
 .role-ability__description { margin: 1rem 0 0; color: var(--color-text); }
-.role-progression, .role-career-skills { margin-top: 1rem; }
-.role-rank-scale { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 0.35rem; margin-top: 1.15rem; }
-.role-rank-scale__item { display: grid; min-height: 2.5rem; place-items: center; border: 1px solid var(--color-line-strong); color: var(--color-accent); background: rgba(61, 255, 102, 0.05); font-size: 0.82rem; }
+.role-career-skills { margin-top: 1rem; }
 .role-progression__range { margin: 1rem 0 0; color: var(--color-muted); font-size: 0.8rem; text-transform: uppercase; }
 .role-progression__description { margin: 0.35rem 0 0; color: var(--color-text); }
+.role-ability-ranks { display: grid; gap: 1px; margin: 1.25rem 0 0; padding: 0; border: 1px solid var(--color-line); list-style: none; background: var(--color-line); }
+.role-ability-ranks li { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: 1rem; padding: 0.8rem 1rem; background: var(--color-bg-raised); }
+.role-ability-ranks span { color: var(--color-accent); font-size: 0.7rem; letter-spacing: 0.08em; }
+.role-ability-ranks p { margin: 0; color: var(--color-text); }
 .role-skill-list { display: grid; gap: 0.45rem 1.25rem; margin: 1.15rem 0 0; padding: 0; list-style: none; grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .role-skill-list li { display: flex; gap: 0.55rem; padding-bottom: 0.45rem; border-bottom: 1px solid var(--color-line); color: var(--color-text); }
 .role-skill-list li span { flex: none; color: var(--color-accent); font-size: 0.75rem; }
@@ -224,8 +226,7 @@ a:hover { color: var(--color-text-bright); }
   .site-footer__inner { align-items: flex-start; flex-direction: column; padding-block: 1.25rem; }
   .role-hero { padding: 0.75rem; grid-template-columns: 1fr; }
   .role-portrait { min-height: 190px; }
-  .role-rank-scale { gap: 0.2rem; }
-  .role-rank-scale__item { min-height: 2rem; font-size: 0.72rem; }
+  .role-ability-ranks li { grid-template-columns: 1fr; gap: 0.2rem; }
   .role-facts { grid-template-columns: 1fr; }
 }
 

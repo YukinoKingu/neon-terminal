@@ -35,6 +35,9 @@ export async function getStaticPaths() {
 const { section, entry } = Astro.props
 const { Content } = await render(entry)
 const isRole = entry.collection === 'cp2020Roles'
+const skills = isRole
+  ? await getCollection('cp2020Skills', ({ data }) => data.status === 'published' || import.meta.env.DEV)
+  : []
 ---
 
 <Layout title={entry.data.title} description={entry.data.summary}>
@@ -48,7 +51,7 @@ const isRole = entry.collection === 'cp2020Roles'
 
     {isRole
       ? (
-          <RoleDetail entry={entry}>
+          <RoleDetail entry={entry} skills={skills}>
             <Content />
           </RoleDetail>
         )

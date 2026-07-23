@@ -46,6 +46,10 @@ const cp2020Roles = defineCollection({
         min: z.number().int().min(1),
         max: z.number().int().max(10),
         progression: z.string().min(1),
+        details: z.array(z.object({
+          level: z.number().int().min(1).max(10),
+          effect: z.string().min(1),
+        })).length(10),
       }),
     }),
     careerSkills: z.array(z.string()).default([]),
