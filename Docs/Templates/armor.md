@@ -11,11 +11,8 @@ tags:
   - броня
 order: 100
 category: category-id
-stoppingPower: 0
-encumbranceValue: 0
-locations:
-  - location-id
-priceEb: 0
 ---
 
 Краткая оригинальная справочная заметка.
+
+Игровые параметры добавляются только после отдельной юридической и редакционной проверки.

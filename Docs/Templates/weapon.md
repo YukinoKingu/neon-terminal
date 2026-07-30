@@ -11,15 +11,8 @@ tags:
   - оружие
 order: 100
 category: category-id
-concealability: concealability-id
-accuracy: 0
-availability: availability-id
-damage: 0d0
-shots: 0
-rateOfFire: 0
-reliability: reliability-id
-rangeMeters: 0
-priceEb: 0
 ---
 
 Краткая оригинальная справочная заметка.
+
+Игровые параметры добавляются только после отдельной юридической и редакционной проверки.

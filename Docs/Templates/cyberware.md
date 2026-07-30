@@ -11,10 +11,9 @@ tags:
   - киберимплант
 order: 100
 category: category-id
-surgery: surgery-id
-humanityLoss: 0d0
-priceEb: 0
 requirements: []
 ---
 
 Краткая оригинальная справочная заметка.
+
+Игровые параметры добавляются только после отдельной юридической и редакционной проверки.

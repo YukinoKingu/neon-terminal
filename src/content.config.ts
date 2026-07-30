@@ -96,15 +96,15 @@ const cp2020Weapons = defineCollection({
   schema: z.object({
     ...commonFields,
     category: z.string().min(1),
-    concealability: z.string().min(1),
-    accuracy: z.number().int(),
-    availability: z.string().min(1),
-    damage: z.string().min(1),
-    shots: z.number().int().nonnegative(),
-    rateOfFire: z.number().int().nonnegative(),
-    reliability: z.string().min(1),
-    rangeMeters: z.number().nonnegative(),
-    priceEb: z.number().nonnegative(),
+    concealability: z.string().min(1).optional(),
+    accuracy: z.number().int().optional(),
+    availability: z.string().min(1).optional(),
+    damage: z.string().min(1).optional(),
+    shots: z.number().int().nonnegative().optional(),
+    rateOfFire: z.number().int().nonnegative().optional(),
+    reliability: z.string().min(1).optional(),
+    rangeMeters: z.number().nonnegative().optional(),
+    priceEb: z.number().nonnegative().optional(),
   }),
 })
 
@@ -113,10 +113,10 @@ const cp2020Armor = defineCollection({
   schema: z.object({
     ...commonFields,
     category: z.string().min(1),
-    stoppingPower: z.number().int().nonnegative(),
-    encumbranceValue: z.number().int().nonnegative(),
-    locations: z.array(z.string()).min(1),
-    priceEb: z.number().nonnegative(),
+    stoppingPower: z.number().int().nonnegative().optional(),
+    encumbranceValue: z.number().int().nonnegative().optional(),
+    locations: z.array(z.string()).min(1).optional(),
+    priceEb: z.number().nonnegative().optional(),
   }),
 })
 
@@ -125,8 +125,8 @@ const cp2020Gear = defineCollection({
   schema: z.object({
     ...commonFields,
     category: z.string().min(1),
-    availability: z.string().min(1),
-    priceEb: z.number().nonnegative(),
+    availability: z.string().min(1).optional(),
+    priceEb: z.number().nonnegative().optional(),
   }),
 })
 
@@ -135,9 +135,9 @@ const cp2020Cyberware = defineCollection({
   schema: z.object({
     ...commonFields,
     category: z.string().min(1),
-    surgery: z.string().min(1),
-    humanityLoss: z.string().min(1),
-    priceEb: z.number().nonnegative(),
+    surgery: z.string().min(1).optional(),
+    humanityLoss: z.string().min(1).optional(),
+    priceEb: z.number().nonnegative().optional(),
     requirements: z.array(z.string()).default([]),
   }),
 })
