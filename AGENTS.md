@@ -20,3 +20,9 @@ Consult these guides before working on related tasks:
 - [Adding or managing content](https://docs.astro.build/en/guides/content-collections/)
 - [Adding styles or using Tailwind](https://docs.astro.build/en/guides/styling/)
 - [Supporting multiple languages](https://docs.astro.build/en/guides/internationalization/)
+
+## Content writing
+
+- Write game-reference content as an authoritative encyclopedic article.
+- Do not use meta-commentary about the source text, such as “the source states”, “the rulebook does not specify”, or “the original gives examples”. State rules and limitations directly.
+- When a rule has no fixed numerical threshold, describe its practical scope directly instead of discussing the absence of a threshold.
