@@ -142,6 +142,25 @@ const cp2020Cyberware = defineCollection({
   }),
 })
 
+function defineReferenceCollection(directory: string) {
+  return defineCollection({
+    loader: contentLoader(directory),
+    schema: z.object(commonFields),
+  })
+}
+
+const cp2020Combat = defineReferenceCollection('combat')
+const cp2020Health = defineReferenceCollection('health')
+const cp2020Drugs = defineReferenceCollection('drugs')
+const cp2020Netrunning = defineReferenceCollection('netrunning')
+const cp2020World = defineReferenceCollection('world')
+const cp2020Gamemastering = defineReferenceCollection('gamemastering')
+const cp2020Adventures = defineReferenceCollection('adventures')
+const cp2020Corporations = defineReferenceCollection('corporations')
+const cp2020NightCity = defineReferenceCollection('night-city')
+const cp2020People = defineReferenceCollection('people')
+const cp2020Screamsheets = defineReferenceCollection('screamsheets')
+
 const cp2020Sources = defineCollection({
   loader: contentLoader('sources'),
   schema: z.object({
@@ -167,4 +186,15 @@ export const collections = {
   cp2020Sources,
   cp2020Stats,
   cp2020Weapons,
+  cp2020Adventures,
+  cp2020Combat,
+  cp2020Corporations,
+  cp2020Drugs,
+  cp2020Gamemastering,
+  cp2020Health,
+  cp2020Netrunning,
+  cp2020NightCity,
+  cp2020People,
+  cp2020Screamsheets,
+  cp2020World,
 }
