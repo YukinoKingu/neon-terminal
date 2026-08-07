@@ -5,8 +5,8 @@ summary: Практическое понимание устройств и ум�
 system: cp2020
 edition: "2.01"
 source: core-rulebook
-status: draft
-verification: unverified
+status: published
+verification: reviewed
 aliases:
   - ТЕХ
   - TECH

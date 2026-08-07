@@ -5,8 +5,8 @@ summary: Физическая мощь, выносливость и способ
 system: cp2020
 edition: "2.01"
 source: core-rulebook
-status: draft
-verification: unverified
+status: published
+verification: reviewed
 aliases:
   - ТЕЛ
   - BODY

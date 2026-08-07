@@ -5,7 +5,8 @@ summary: Вопросы, которые помогают определить о
 system: cp2020
 edition: "2.01"
 source: core-rulebook
-status: draft
+status: published
+verification: reviewed
 aliases:
   - образ персонажа
 tags:

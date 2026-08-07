@@ -5,8 +5,8 @@ summary: Обзор винтовок как категории оружия и �
 system: cp2020
 edition: "2.01"
 source: core-rulebook
-status: draft
-verification: source-checked
+status: published
+verification: reviewed
 aliases: []
 tags:
   - оружие

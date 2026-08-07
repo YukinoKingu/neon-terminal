@@ -5,8 +5,8 @@ summary: Обзор тяжёлого оружия как отдельной ка
 system: cp2020
 edition: "2.01"
 source: core-rulebook
-status: draft
-verification: source-checked
+status: published
+verification: reviewed
 aliases: []
 tags:
   - оружие

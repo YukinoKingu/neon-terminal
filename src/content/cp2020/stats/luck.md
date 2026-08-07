@@ -5,8 +5,8 @@ summary: Запас счастливых совпадений, позволяю�
 system: cp2020
 edition: "2.01"
 source: core-rulebook
-status: draft
-verification: unverified
+status: published
+verification: reviewed
 aliases:
   - УДЧ
   - LUCK

@@ -5,7 +5,8 @@ summary: Краткая последовательность подготовк�
 system: cp2020
 edition: "2.01"
 source: core-rulebook
-status: draft
+status: published
+verification: reviewed
 aliases:
   - чек-лист персонажа
 tags:
