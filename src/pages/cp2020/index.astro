@@ -2,25 +2,138 @@
 import SectionCard from '../../components/SectionCard.astro'
 import { cp2020Sections } from '../../data/cp2020-sections'
 import Layout from '../../layouts/Layout.astro'
+
+const sectionGroups = [
+  {
+    id: 'character',
+    index: '01',
+    title: 'Персонаж',
+    description: 'Создание, развитие и предыстория героя.',
+    slugs: ['create', 'roles', 'stats', 'skills', 'lifepath', 'rules'],
+  },
+  {
+    id: 'equipment',
+    index: '02',
+    title: 'Арсенал и оснащение',
+    description: 'Всё, что персонаж носит, покупает и устанавливает.',
+    slugs: ['weapons', 'armor', 'gear', 'cyberware', 'drugs'],
+  },
+  {
+    id: 'rules',
+    index: '03',
+    title: 'Игровые системы',
+    description: 'Столкновения, последствия и работа в Сети.',
+    slugs: ['combat', 'health', 'netrunning'],
+  },
+  {
+    id: 'world',
+    index: '04',
+    title: 'Мир и ведение',
+    description: 'Найт-Сити, силы мира и материалы для Рефери.',
+    slugs: ['world', 'night-city', 'corporations', 'people', 'gamemastering', 'adventures', 'screamsheets'],
+  },
+] as const
+
+const groups = sectionGroups.map(group => ({
+  ...group,
+  sections: group.slugs.map(slug => cp2020Sections.find(section => section.slug === slug)!),
+}))
 ---
 
-<Layout title="Cyberpunk 2020" description="Разделы справочника по созданию персонажа Cyberpunk 2020 редакции 2.01.">
-  <section class="shell page-section">
-    <p class="eyebrow">&gt; systems/cp2020 // edition 2.01</p>
-    <h1 class="page-title">Cyberpunk 2020</h1>
-    <p class="page-lead">
-      Справочник использует только основную книгу правил. Материалы дополнений и Cyberpunk RED
-      хранятся отдельно и не смешиваются с этой редакцией.
-    </p>
+<Layout title="Cyberpunk 2020" description="Разделы справочника по созданию персонажа и правилам Cyberpunk 2020 редакции 2.01.">
+  <section class="shell wiki-overview">
+    <div class="wiki-overview__intro">
+      <p class="eyebrow">Система · редакция 2.01</p>
+      <h1 class="page-title">Cyberpunk 2020</h1>
+      <p class="page-lead">
+        Основные правила, оснащение и мир игры собраны в четырёх понятных направлениях.
+      </p>
+    </div>
+
+    <div class="section-search">
+      <label for="section-search">Найти раздел</label>
+      <div class="section-search__field">
+        <svg aria-hidden="true" viewBox="0 0 20 20">
+          <circle cx="8.5" cy="8.5" r="5.5"></circle>
+          <path d="m13 13 4 4"></path>
+        </svg>
+        <input
+          id="section-search"
+          data-section-search
+          type="search"
+          placeholder="Например: бой, оружие, Найт-Сити"
+          autocomplete="off"
+        />
+        <kbd>/</kbd>
+      </div>
+      <p><span data-section-count>{cp2020Sections.length}</span> разделов · поиск по русским и английским названиям</p>
+    </div>
   </section>
 
-  <section class="shell page-section--compact" aria-labelledby="sections-heading">
-    <div class="section-heading">
-      <h2 id="sections-heading">Разделы базы</h2>
-      <span>{cp2020Sections.length} nodes available</span>
+  <section class="shell section-directory" aria-labelledby="sections-heading">
+    <div class="section-directory__heading">
+      <div>
+        <p class="eyebrow">Каталог</p>
+        <h2 id="sections-heading">Разделы справочника</h2>
+      </div>
+      <p>Выберите направление, затем нужную тему.</p>
     </div>
-    <div class="card-grid">
-      {cp2020Sections.map(section => <SectionCard section={section} />)}
+
+    <div class="section-groups">
+      {groups.map(group => (
+        <section class="section-group" data-section-group aria-labelledby={`group-${group.id}`}>
+          <header class="section-group__header">
+            <span>{group.index}</span>
+            <div>
+              <h3 id={`group-${group.id}`}>{group.title}</h3>
+              <p>{group.description}</p>
+            </div>
+            <small>{String(group.sections.length).padStart(2, '0')} узлов</small>
+          </header>
+          <div class="section-group__cards">
+            {group.sections.map(section => <SectionCard section={section} />)}
+          </div>
+        </section>
+      ))}
     </div>
+
+    <p class="section-search-empty" data-section-empty hidden>
+      По этому запросу разделов не найдено. Попробуйте другое слово.
+    </p>
   </section>
 </Layout>
+
+<script>
+  const searchInput = document.querySelector<HTMLInputElement>('[data-section-search]')
+  const sectionCards = [...document.querySelectorAll<HTMLElement>('[data-section-card]')]
+  const sectionGroups = [...document.querySelectorAll<HTMLElement>('[data-section-group]')]
+  const sectionCount = document.querySelector<HTMLElement>('[data-section-count]')
+  const emptyState = document.querySelector<HTMLElement>('[data-section-empty]')
+
+  const updateSectionSearch = () => {
+    const query = searchInput?.value.trim().toLocaleLowerCase('ru-RU') ?? ''
+    let visibleCount = 0
+
+    sectionCards.forEach((card) => {
+      const matches = card.textContent?.toLocaleLowerCase('ru-RU').includes(query) ?? false
+      card.hidden = !matches
+      if (matches) visibleCount += 1
+    })
+
+    sectionGroups.forEach((group) => {
+      group.hidden = !group.querySelector('[data-section-card]:not([hidden])')
+    })
+
+    if (sectionCount) sectionCount.textContent = String(visibleCount)
+    if (emptyState) emptyState.hidden = visibleCount > 0
+  }
+
+  searchInput?.addEventListener('input', updateSectionSearch)
+  document.addEventListener('keydown', (event) => {
+    const target = event.target as HTMLElement
+    if (event.key === '/' && !target.closest('input, textarea, select')) {
+      event.preventDefault()
+      searchInput?.focus()
+    }
+  })
+</script>

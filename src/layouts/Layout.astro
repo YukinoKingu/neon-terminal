@@ -1,6 +1,7 @@
 ---
 import SiteFooter from '../components/SiteFooter.astro'
 import SiteHeader from '../components/SiteHeader.astro'
+import '@fontsource-variable/onest'
 import '../styles/global.css'
 
 interface Props {
@@ -13,7 +14,7 @@ const {
   description = 'Неофициальный русскоязычный справочник для Cyberpunk 2020.',
 } = Astro.props
 
-const documentTitle = title ? `${title} // NEON//TERMINAL` : 'NEON//TERMINAL'
+const documentTitle = title ? `${title} — NEON//TERMINAL` : 'NEON//TERMINAL'
 ---
 
 <!doctype html>
@@ -22,7 +23,7 @@ const documentTitle = title ? `${title} // NEON//TERMINAL` : 'NEON//TERMINAL'
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#031008" />
+    <meta name="theme-color" content="#0c1218" />
     <meta name="color-scheme" content="dark" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />

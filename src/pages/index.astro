@@ -3,34 +3,47 @@ import Layout from '../layouts/Layout.astro'
 ---
 
 <Layout>
-  <section class="shell hero">
-    <div>
-      <p class="eyebrow">&gt; public_access // knowledge_base</p>
-      <h1 class="hero__title">Справочник тёмного будущего</h1>
+  <section class="shell landing-hero">
+    <div class="landing-hero__content">
+      <p class="eyebrow">Cyberpunk 2020 · русскоязычный справочник</p>
+      <h1 class="hero__title">Правила тёмного будущего — без лишнего шума</h1>
       <p class="hero__lead">
-        Русскоязычная база для ручного создания персонажа в Cyberpunk 2020. Кратко,
-        структурированно и с оригинальными английскими названиями.
+        Структурированная база для создания персонажа, игры и быстрого поиска правил.
+        Русские термины дополнены оригинальными английскими названиями.
       </p>
       <div class="hero__actions">
-        <a class="terminal-button" href="/cp2020/">Открыть Cyberpunk 2020 <span aria-hidden="true">-&gt;</span></a>
-        <a class="terminal-button" href="/legal/">Статус проекта</a>
+        <a class="primary-button" href="/cp2020/">
+          Открыть справочник
+          <span aria-hidden="true">→</span>
+        </a>
+        <a class="secondary-button" href="/legal/">О проекте</a>
       </div>
     </div>
 
-    <aside class="terminal-panel" aria-label="Состояние базы данных">
-      <div class="terminal-panel__header">
-        <span>system_status</span>
-        <span>read_only</span>
+    <aside class="quick-access" aria-labelledby="quick-access-title">
+      <div class="quick-access__header">
+        <div>
+          <p class="eyebrow">Маршруты архива</p>
+          <h2 id="quick-access-title">Точки входа</h2>
+        </div>
+        <span>PUBLIC FEED</span>
       </div>
-      <div class="terminal-panel__content">
-        <dl class="status-list">
-          <div><dt>Система</dt><dd>CP2020</dd></div>
-          <div><dt>Редакция</dt><dd>2.01</dd></div>
-          <div><dt>Язык</dt><dd>RU + EN</dd></div>
-          <div><dt>Источник</dt><dd>CORE ONLY</dd></div>
-          <div><dt>Состояние</dt><dd>FOUNDATION</dd></div>
-        </dl>
-      </div>
+      <nav class="quick-access__links" aria-label="Часто используемые разделы">
+        <a href="/cp2020/create/"><span>01</span>Создание персонажа<strong>→</strong></a>
+        <a href="/cp2020/roles/"><span>02</span>Роли<strong>→</strong></a>
+        <a href="/cp2020/combat/"><span>11</span>Бой<strong>→</strong></a>
+        <a href="/cp2020/cyberware/"><span>10</span>Киберимпланты<strong>→</strong></a>
+        <a href="/cp2020/night-city/"><span>19</span>Найт-Сити<strong>→</strong></a>
+      </nav>
     </aside>
+  </section>
+
+  <section class="shell landing-note" aria-label="О содержании справочника">
+    <span class="landing-note__index">01</span>
+    <div>
+      <h2>Одна редакция. Чёткая структура.</h2>
+      <p>Материалы основной книги правил отделены от дополнений и других редакций.</p>
+    </div>
+    <a href="/cp2020/">Все 21 раздел →</a>
   </section>
 </Layout>
