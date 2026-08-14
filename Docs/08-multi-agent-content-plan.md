@@ -114,3 +114,10 @@
 - Корпоративный состав и роль мегакорпораций дополнительно сверены с официальным описанием [Corporation Report 2020](https://rtalsoriangames.com/2020/08/05/corporation-report-2020-now-on-sale/) и [страницей Cyberpunk 2020](https://rtalsoriangames.com/cyberpunk/) R. Talsorian Games.
 - В открытом безопасном backlog остаётся только `characteristics-and-derived-values`. Статья сохраняет `status: draft` до принятия единого перевода `Movement Allowance`; числовая очередь `content/licensed-data` остаётся закрытой до разрешения правообладателя.
 - Все 44 новых маршрута возвращают HTTP 200 и содержат заголовок и тело статьи. `pnpm check` и `pnpm build` проходят без ошибок; production-сборка содержит 194 страницы.
+
+## Закрытие открытого безопасного backlog
+
+- Перевод `Movement Allowance` унифицирован как «Скорость передвижения» по уже опубликованной карточке характеристики и официальным полям листа персонажа. Решение зафиксировано в `Docs/06-terminology-review.md`.
+- `characteristics-and-derived-values` переработана и опубликована со статусами `published` и `reviewed`. В `src/content/cp2020` больше нет материалов со статусом `draft`.
+- Финальные `pnpm check` и `pnpm build` проходят без ошибок; production-сборка содержит 195 страниц. Маршрут статьи проверен в браузере: заголовок, все девять характеристик и принятый термин отображаются корректно.
+- Открытых задач безопасного наполнения нет. Очередь `content/licensed-data` остаётся заблокированной до документированного разрешения R. Talsorian Games.
