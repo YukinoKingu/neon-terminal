@@ -106,3 +106,11 @@
 - Обозначения характеристик, производных значений и официальный статус справочных материалов сверены с [Cyberpunk 2020 Quick Sheet](https://rtalsoriangames.com/wp-content/uploads/2019/01/Cyberpunk2020QuickSheet.pdf) и [разделом загрузок R. Talsorian Games](https://rtalsoriangames.com/downloadable-content/).
 - В очереди остаются 45 материалов со статусом `draft`. `characteristics-and-derived-values` не публикуется до принятия единого перевода `Movement Allowance` в терминологическом реестре.
 - `pnpm check` и `pnpm build` проходят без ошибок; production-сборка содержит 150 страниц.
+
+## Завершение безопасной очереди на 2026-08-14
+
+- Опубликованы остальные 44 безопасных обзора: развитие навыков и начальные средства, Lifepath, бой, здоровье, наркотики, нетраннинг, общество, корпорации, Найт-Сити, персонажи мира, ведение игры, `Never Fade Away` и скримлисты.
+- Все автоматически созданные OCR-пересказы заменены самостоятельными текстами. В статьях нет цен, числовых таблиц, полных формул, статблоков, результатов Lifepath и готовых тактических решений сценариев.
+- Корпоративный состав и роль мегакорпораций дополнительно сверены с официальным описанием [Corporation Report 2020](https://rtalsoriangames.com/2020/08/05/corporation-report-2020-now-on-sale/) и [страницей Cyberpunk 2020](https://rtalsoriangames.com/cyberpunk/) R. Talsorian Games.
+- В открытом безопасном backlog остаётся только `characteristics-and-derived-values`. Статья сохраняет `status: draft` до принятия единого перевода `Movement Allowance`; числовая очередь `content/licensed-data` остаётся закрытой до разрешения правообладателя.
+- Все 44 новых маршрута возвращают HTTP 200 и содержат заголовок и тело статьи. `pnpm check` и `pnpm build` проходят без ошибок; production-сборка содержит 194 страницы.
