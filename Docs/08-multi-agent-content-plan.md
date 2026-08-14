@@ -98,3 +98,11 @@
 - После редакторской сверки с основной книгой и доступными официальными материалами R. Talsorian Games опубликованы 29 безопасных обзорных страниц: маршрут создания персонажа, характеристики, Humanity/Empathy и обзорные каталоги оружия, брони, снаряжения и киберимплантов. Они имеют `status: published` и `verification: reviewed`.
 - Остальные 49 автоматически созданных материалов сохраняют `status: draft` и `verification: unverified`. Перед публикацией обязательны сверка числовых правил с основной книгой, удаление OCR-артефактов, терминологическая редактура и проверка оригинальности формулировок.
 - Контрольные команды `pnpm check` и `pnpm build` проходят без ошибок, предупреждений и подсказок.
+
+## Продолжение переноса на 2026-08-14
+
+- После редакторской проверки опубликованы `weapon-statistics`, `dice-and-character-points`, `skill-checks` и `reputation`. OCR-пересказы заменены самостоятельными безопасными обзорами без таблиц, цен, порогов и полных формул.
+- Поля оружия и различия между Cyberpunk 2020 и Cyberpunk RED сверены с официальным руководством R. Talsorian Games [Old Guns Never Die](https://rtalsoriangames.com/wp-content/uploads/2020/11/RTG-CPR-OldGuns.pdf).
+- Обозначения характеристик, производных значений и официальный статус справочных материалов сверены с [Cyberpunk 2020 Quick Sheet](https://rtalsoriangames.com/wp-content/uploads/2019/01/Cyberpunk2020QuickSheet.pdf) и [разделом загрузок R. Talsorian Games](https://rtalsoriangames.com/downloadable-content/).
+- В очереди остаются 45 материалов со статусом `draft`. `characteristics-and-derived-values` не публикуется до принятия единого перевода `Movement Allowance` в терминологическом реестре.
+- `pnpm check` и `pnpm build` проходят без ошибок; production-сборка содержит 150 страниц.
