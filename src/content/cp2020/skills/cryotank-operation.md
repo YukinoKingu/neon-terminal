@@ -5,11 +5,15 @@ summary: Эксплуатация, ремонт и техническое обс
 system: cp2020
 edition: '2.01'
 source: core-rulebook
+sourcePages:
+  - print: '52'
+    ocr: ['0055']
 status: published
-verification: source-checked
+verification: reviewed
 aliases: [Эксплуатация крио-камеры]
 tags: [навык, TECH, медицина, криокамера]
 stat: TECH
+difficultyMultiplier: 1
 ---
 
 ## Назначение
@@ -22,8 +26,7 @@ stat: TECH
 
 ## Уровни владения
 
-- **+4 минимум** — безопасная заморозка здорового человека.
-- **+6 минимум** — заморозка раненого человека.
+эксплуатация/ремонт/обслуживание жизнеобеспечения и заморозки; минимум +4 здоровый, минимум +6 раненый
 
 ## Границы
 

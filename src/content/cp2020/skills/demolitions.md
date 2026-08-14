@@ -5,8 +5,11 @@ summary: Знание взрывчатых веществ, детонаторо�
 system: cp2020
 edition: '2.01'
 source: core-rulebook
+sourcePages:
+  - print: '52'
+    ocr: ['0055']
 status: published
-verification: source-checked
+verification: reviewed
 aliases: [Взрывное дело, Взрывчатка]
 tags: [навык, TECH, взрывчатка, сапёрное дело]
 stat: TECH
@@ -23,7 +26,7 @@ difficultyMultiplier: 2
 
 ## Уровни владения
 
-Высокий уровень позволяет уверенно работать со всё более сложными зарядами, взрывателями и условиями подрыва.
+выбор взрывчатки под задачу, таймеры/детонаторы, расчёт количества; порогов нет
 
 ## Границы
 

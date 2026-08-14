@@ -5,11 +5,15 @@ summary: Умение формировать и поддерживать ром�
 system: cp2020
 edition: '2.01'
 source: core-rulebook
+sourcePages:
+  - print: '48'
+    ocr: ['0051']
 status: published
-verification: source-checked
+verification: reviewed
 aliases: []
 tags: [навык, EMP, отношения, социальное]
 stat: EMP
+difficultyMultiplier: 1
 ---
 
 ## Назначение
@@ -22,7 +26,7 @@ stat: EMP
 
 ## Уровни владения
 
-Высокий уровень означает более тонкое понимание сигналов, уверенную подачу и умение избегать грубых ошибок.
+формирование/поддержание романтических отношений и интенсивности; Рефери может усреднить навык с ATTR; порогов нет
 
 ## Границы
 

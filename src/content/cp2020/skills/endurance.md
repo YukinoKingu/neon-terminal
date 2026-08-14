@@ -5,11 +5,15 @@ summary: Способность долго переносить физическ
 system: cp2020
 edition: '2.01'
 source: core-rulebook
+sourcePages:
+  - print: '47'
+    ocr: ['0050']
 status: published
-verification: source-checked
+verification: reviewed
 aliases: []
 tags: [навык, BODY, физическое]
 stat: BODY
+difficultyMultiplier: 1
 ---
 
 ## Назначение
@@ -22,7 +26,7 @@ stat: BODY
 
 ## Уровни владения
 
-Уровень навыка добавляется к проверкам длительного сопротивления нагрузке и лишениям.
+сопротивление боли/невзгодам длительное время; проверки при долгой активности без еды, сна или воды; порогов нет
 
 ## Границы
 

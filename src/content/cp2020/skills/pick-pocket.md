@@ -5,11 +5,15 @@ summary: Умение незаметно очищать карманы и пох
 system: cp2020
 edition: '2.01'
 source: core-rulebook
+sourcePages:
+  - print: '53'
+    ocr: ['0056']
 status: published
-verification: source-checked
+verification: reviewed
 aliases: [Карманник]
 tags: [навык, TECH, кража, криминал]
 stat: TECH
+difficultyMultiplier: 1
 ---
 
 ## Назначение
@@ -22,7 +26,7 @@ stat: TECH
 
 ## Уровни владения
 
-Основной рулбук предлагает ориентироваться на примеры уровней из «Взлома замков», но не устанавливает для карманной кражи отдельные фиксированные эффекты.
+карманы и мелкие предметы без обнаружения; уровни аналогичны Взлому замков
 
 ## Границы
 

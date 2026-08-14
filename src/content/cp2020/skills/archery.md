@@ -5,11 +5,15 @@ summary: Владение луками, арбалетами и другим с�
 system: cp2020
 edition: '2.01'
 source: core-rulebook
+sourcePages:
+  - print: '50'
+    ocr: ['0053']
 status: published
-verification: source-checked
+verification: reviewed
 aliases: [Лук, Стрельба из арбалета]
 tags: [навык, REF, оружие, дальний бой]
 stat: REF
+difficultyMultiplier: 1
 ---
 
 ## Назначение
@@ -22,7 +26,7 @@ stat: REF
 
 ## Уровни владения
 
-Значение навыка напрямую добавляется к проверкам соответствующего оружия и определяет точность стрельбы.
+луки/арбалеты/аналогичное стрелковое оружие; детали как Пистолеты
 
 ## Границы
 

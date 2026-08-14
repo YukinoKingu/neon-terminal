@@ -5,11 +5,15 @@ summary: Знание человеческих культур, их происх
 system: cp2020
 edition: '2.01'
 source: core-rulebook
+sourcePages:
+  - print: '48'
+    ocr: ['0051']
 status: published
-verification: source-checked
+verification: reviewed
 aliases: [Культурная антропология]
 tags: [навык, INT, культура]
 stat: INT
+difficultyMultiplier: 1
 ---
 
 ## Назначение
@@ -22,7 +26,7 @@ stat: INT
 
 ## Уровни владения
 
-Чем выше навык, тем шире круг изученных культур и тем лучше персонаж применяет общие методы анализа к незнакомой группе.
+общие культуры, привычки, обычаи и происхождение; отличается от Streetwise/Social; порогов нет
 
 ## Границы
 

@@ -5,11 +5,15 @@ summary: Расчёт и понимание физических принцип�
 system: cp2020
 edition: '2.01'
 source: core-rulebook
+sourcePages:
+  - print: '49'
+    ocr: ['0052']
 status: published
-verification: source-checked
+verification: reviewed
 aliases: [Физические знания]
 tags: [навык, INT, наука]
 stat: INT
+difficultyMultiplier: 2
 ---
 
 ## Назначение
@@ -22,7 +26,7 @@ stat: INT
 
 ## Уровни владения
 
-На уровне +3 персонаж обладает базовой школьной подготовкой, на +4 — уровнем студента, на +6 — профессиональным пониманием, на +9 — выдающейся научной компетентностью.
+физические принципы (давление газа, механическая энергия и т.п.); prerequisite **Математика +4**
 
 ## Границы
 

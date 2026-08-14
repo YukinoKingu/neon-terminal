@@ -5,11 +5,15 @@ summary: Работа с тракторами, танками, крупными 
 system: cp2020
 edition: '2.01'
 source: core-rulebook
+sourcePages:
+  - print: '51'
+    ocr: ['0054']
 status: published
-verification: source-checked
+verification: reviewed
 aliases: [Эксплуатация тяжёлой техники, Тяжёлая техника]
 tags: [навык, REF, транспорт, техника]
 stat: REF
+difficultyMultiplier: 1
 ---
 
 ## Назначение
@@ -22,7 +26,7 @@ stat: REF
 
 ## Уровни владения
 
-Значение навыка участвует в проверках эксплуатации соответствующей техники и определяет уверенность при работе со сложными машинами.
+тракторы, танки, очень большие грузовики, стройтехника
 
 ## Границы
 

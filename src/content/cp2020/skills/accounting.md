@@ -5,11 +5,15 @@ summary: Ведение бухгалтерии, работа с финансов
 system: cp2020
 edition: '2.01'
 source: core-rulebook
+sourcePages:
+  - print: '48'
+    ocr: ['0051']
 status: published
-verification: source-checked
+verification: reviewed
 aliases: [Бухгалтерский учёт, Бухгалтерия]
 tags: [навык, INT, финансы]
 stat: INT
+difficultyMultiplier: 1
 ---
 
 ## Назначение
@@ -22,7 +26,7 @@ stat: INT
 
 ## Уровни владения
 
-Рост навыка позволяет работать с более крупными, запутанными и намеренно искажёнными наборами финансовых данных.
+бухгалтерия/подделка записей, числа, бюджеты, ежедневные бизнес-операции; порогов нет
 
 ## Границы
 

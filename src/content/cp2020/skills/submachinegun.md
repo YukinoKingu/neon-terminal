@@ -5,11 +5,15 @@ summary: Владение пистолетами-пулемётами всех �
 system: cp2020
 edition: '2.01'
 source: core-rulebook
+sourcePages:
+  - print: '52'
+    ocr: ['0055']
 status: published
-verification: source-checked
+verification: reviewed
 aliases: [Пистолеты-Пулеметы, Пистолеты-пулеметы]
 tags: [навык, REF, бой, оружие]
 stat: REF
+difficultyMultiplier: 1
 ---
 
 ## Назначение
@@ -22,7 +26,7 @@ stat: REF
 
 ## Уровни владения
 
-Уровень навыка напрямую добавляется к соответствующим проверкам стрельбы и определяет точность владения пистолетами-пулемётами.
+любой ПП; ограничения/модификаторы как Пистолеты
 
 ## Границы
 

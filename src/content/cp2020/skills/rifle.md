@@ -5,11 +5,15 @@ summary: Владение винтовками и другим длинност�
 system: cp2020
 edition: '2.01'
 source: core-rulebook
+sourcePages:
+  - print: '52'
+    ocr: ['0055']
 status: published
-verification: source-checked
+verification: reviewed
 aliases: [Винтовка, Винтовки/Дробовики]
 tags: [навык, REF, бой, оружие]
 stat: REF
+difficultyMultiplier: 1
 ---
 
 ## Назначение
@@ -22,7 +26,7 @@ stat: REF
 
 ## Уровни владения
 
-Уровень навыка напрямую добавляется к проверкам стрельбы из винтовок и дробовиков и определяет точность стрелка.
+винтовки/дробовики; ограничения и модификаторы как Пистолеты
 
 ## Границы
 

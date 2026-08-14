@@ -5,11 +5,15 @@ summary: Обслуживание, ремонт и модификация эле
 system: cp2020
 edition: '2.01'
 source: core-rulebook
+sourcePages:
+  - print: '53'
+    ocr: ['0056']
 status: published
-verification: source-checked
+verification: reviewed
 aliases: []
 tags: [навык, TECH, электроника, ремонт]
 stat: TECH
+difficultyMultiplier: 1
 ---
 
 ## Назначение
@@ -22,7 +26,7 @@ stat: TECH
 
 ## Уровни владения
 
-Высокий уровень позволяет работать со всё более сложными электронными устройствами и их неисправностями.
+обслуживание/ремонт/модификация компьютеров, личной электроники, систем безопасности, камер/мониторов
 
 ## Границы
 

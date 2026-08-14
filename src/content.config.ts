@@ -15,6 +15,10 @@ const commonFields = {
   system,
   edition,
   source: z.literal('core-rulebook'),
+  sourcePages: z.array(z.object({
+    print: z.string(),
+    ocr: z.array(z.string()),
+  })).optional(),
   status: publicationStatus.default('draft'),
   verification: verificationStatus.default('unverified'),
   aliases: z.array(z.string()).default([]),
@@ -69,7 +73,7 @@ const cp2020Skills = defineCollection({
   schema: z.object({
     ...commonFields,
     stat: statCode,
-    difficultyMultiplier: z.number().int().positive().optional(),
+    difficultyMultiplier: z.number().int().positive(),
     isCareerSkillFor: z.array(z.string()).optional(),
   }),
 })
@@ -127,6 +131,7 @@ const cp2020Gear = defineCollection({
     category: z.string().min(1),
     availability: z.string().min(1).optional(),
     priceEb: z.number().nonnegative().optional(),
+    priceModel: z.string().optional(),
   }),
 })
 
@@ -135,6 +140,8 @@ const cp2020Cyberware = defineCollection({
   schema: z.object({
     ...commonFields,
     category: z.string().min(1),
+    catalogId: z.string().optional(),
+    optionSlots: z.number().int().nonnegative().optional(),
     surgery: z.string().min(1).optional(),
     humanityLoss: z.string().min(1).optional(),
     priceEb: z.number().nonnegative().optional(),
@@ -170,7 +177,36 @@ const cp2020Sources = defineCollection({
     edition,
     publisher: z.string().min(1),
     identifier: z.string().min(1),
+    language: z.string().min(1),
+    sourceFile: z.string().min(1),
+    permission: z.discriminatedUnion('status', [
+      z.object({
+        status: z.literal('granted'),
+        grantor: z.string().min(1).optional(),
+        grantee: z.string().min(1).optional(),
+        receivedAt: z.string().min(1).optional(),
+        evidencePath: z.string().min(1),
+        evidenceSha256: z.string().min(1),
+        scope: z.string().min(1),
+        attribution: z.string().min(1),
+        restrictions: z.string().min(1),
+        expiresAt: z.string().min(1).optional(),
+      }),
+      z.object({
+        status: z.enum(['blocked', 'denied']),
+        grantor: z.string().min(1).optional(),
+        grantee: z.string().min(1).optional(),
+        receivedAt: z.string().min(1).optional(),
+        evidencePath: z.string().min(1).optional(),
+        evidenceSha256: z.string().min(1).optional(),
+        scope: z.string().min(1).optional(),
+        attribution: z.string().min(1).optional(),
+        restrictions: z.string().min(1).optional(),
+        expiresAt: z.string().min(1).optional(),
+      }),
+    ]),
     status: publicationStatus.default('published'),
+    verification: verificationStatus.default('unverified'),
   }),
 })
 

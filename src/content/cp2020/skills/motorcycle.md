@@ -5,11 +5,15 @@ summary: Управление мотоциклами, кибермотоцикл
 system: cp2020
 edition: '2.01'
 source: core-rulebook
+sourcePages:
+  - print: '51'
+    ocr: ['0054']
 status: published
-verification: source-checked
+verification: reviewed
 aliases: [Вождение мотоцикла, Мотоцикл]
 tags: [навык, REF, транспорт, мотоцикл]
 stat: REF
+difficultyMultiplier: 1
 ---
 
 ## Назначение
@@ -22,7 +26,7 @@ stat: REF
 
 ## Уровни владения
 
-Уровень навыка добавляется к проверкам управления соответствующим мототранспортом и определяет уверенность водителя в сложных условиях.
+мотоциклы, кибермотоциклы, прочие 2-/3-колёсные средства
 
 ## Границы
 

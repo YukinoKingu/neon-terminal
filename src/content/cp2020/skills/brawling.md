@@ -5,11 +5,15 @@ summary: Практический опыт рукопашной схватки �
 system: cp2020
 edition: '2.01'
 source: core-rulebook
+sourcePages:
+  - print: '50'
+    ocr: ['0053']
 status: published
-verification: source-checked
+verification: reviewed
 aliases: [Уличная драка]
 tags: [навык, REF, бой, рукопашное]
 stat: REF
+difficultyMultiplier: 1
 ---
 
 ## Назначение
@@ -22,7 +26,7 @@ stat: REF
 
 ## Уровни владения
 
-Рост уровня означает больший опыт реальных драк, но не открывает перечень формализованных ключевых приёмов.
+уличный, не формально тренируемый навык; нет специализированных атак и бонуса урона от уровня
 
 ## Границы
 

@@ -5,11 +5,15 @@ summary: Перевязка ран, остановка кровотечения 
 system: cp2020
 edition: '2.01'
 source: core-rulebook
+sourcePages:
+  - print: '53'
+    ocr: ['0056']
 status: published
-verification: source-checked
+verification: reviewed
 aliases: []
 tags: [навык, TECH, медицина]
 stat: TECH
+difficultyMultiplier: 1
 ---
 
 ## Назначение
@@ -22,7 +26,7 @@ stat: TECH
 
 ## Уровни владения
 
-Результат определяется правилами лечения и уровнем подготовки персонажа.
+перевязка, остановка крови, приведение в чувство оглушённого; детали Trauma Team
 
 ## Границы
 

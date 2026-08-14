@@ -5,11 +5,15 @@ summary: Незаметное преследование и слежка за л
 system: cp2020
 edition: '2.01'
 source: core-rulebook
+sourcePages:
+  - print: '50'
+    ocr: ['0053']
 status: published
-verification: source-checked
+verification: reviewed
 aliases: [Слежка, Преследование, Выслеживание в городе]
 tags: [навык, INT, наблюдение]
 stat: INT
+difficultyMultiplier: 1
 ---
 
 ## Назначение
@@ -22,7 +26,7 @@ stat: INT
 
 ## Уровни владения
 
-Повышение навыка означает умение вести более осторожную и длительную слежку против внимательной цели.
+преследование/слежка в городе/населённых местах; wilderness tracking входит в Выживание; порогов нет
 
 ## Границы
 

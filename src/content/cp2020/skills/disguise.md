@@ -5,11 +5,15 @@ summary: Изменение внешности с помощью грима и �
 system: cp2020
 edition: '2.01'
 source: core-rulebook
+sourcePages:
+  - print: '52'
+    ocr: ['0055']
 status: published
-verification: source-checked
+verification: reviewed
 aliases: [Грим, Маскарад]
 tags: [навык, TECH, маскировка, грим]
 stat: TECH
+difficultyMultiplier: 1
 ---
 
 ## Назначение
@@ -22,7 +26,7 @@ stat: TECH
 
 ## Уровни владения
 
-Высокий уровень позволяет создавать всё более убедительные образы и скрывать больше отличительных черт.
+сходство с реальным/вымышленным человеком; грим + элементы актёрства, но не навык актёра
 
 ## Границы
 

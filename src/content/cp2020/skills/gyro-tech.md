@@ -5,11 +5,15 @@ summary: Ремонт и обслуживание летательных апп�
 system: cp2020
 edition: '2.01'
 source: core-rulebook
+sourcePages:
+  - print: '53'
+    ocr: ['0056']
 status: published
-verification: source-checked
+verification: reviewed
 aliases: [Техника вертолётов]
 tags: [навык, TECH, авиация, ремонт]
 stat: TECH
+difficultyMultiplier: 3
 ---
 
 ## Назначение
@@ -22,7 +26,7 @@ stat: TECH
 
 ## Уровни владения
 
-Высокий уровень позволяет обслуживать и восстанавливать более сложные узлы винтокрылой техники.
+ремонт/обслуживание роторных аппаратов (вертолёты, гирокоптеры); порогов нет
 
 ## Границы
 

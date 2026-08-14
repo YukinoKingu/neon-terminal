@@ -5,11 +5,15 @@ summary: Умение копировать и создавать фальшив�
 system: cp2020
 edition: '2.01'
 source: core-rulebook
+sourcePages:
+  - print: '53'
+    ocr: ['0056']
 status: published
-verification: source-checked
+verification: reviewed
 aliases: [Подделывание]
 tags: [навык, TECH, документы, криминал]
 stat: TECH
+difficultyMultiplier: 1
 ---
 
 ## Назначение
@@ -22,7 +26,7 @@ stat: TECH
 
 ## Уровни владения
 
-Высокий уровень позволяет подделывать более сложные документы, подписи и защищённые образцы.
+копировать/создавать документы и ID; также обнаруживать подделки
 
 ## Границы
 

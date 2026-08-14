@@ -5,11 +5,15 @@ summary: Умение держаться на воде, перемещаться
 system: cp2020
 edition: '2.01'
 source: core-rulebook
+sourcePages:
+  - print: '47'
+    ocr: ['0050']
 status: published
-verification: source-checked
+verification: reviewed
 aliases: []
 tags: [навык, BODY, движение]
 stat: BODY
+difficultyMultiplier: 1
 ---
 
 ## Назначение
@@ -22,7 +26,7 @@ stat: BODY
 
 ## Уровни владения
 
-Уровень навыка добавляется к соответствующим проверкам в воде и определяет уверенность пловца в сложных условиях.
+необходим для плавания; детали связаны с Атлетикой; порогов нет
 
 ## Границы
 

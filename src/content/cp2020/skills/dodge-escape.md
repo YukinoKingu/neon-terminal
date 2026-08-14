@@ -5,11 +5,15 @@ summary: Умение уйти с линии атаки или вырватьс�
 system: cp2020
 edition: '2.01'
 source: core-rulebook
+sourcePages:
+  - print: '50'
+    ocr: ['0053']
 status: published
-verification: source-checked
+verification: reviewed
 aliases: [Уклонение, Уклонение и Избегание]
 tags: [навык, REF, бой, защита]
 stat: REF
+difficultyMultiplier: 1
 ---
 
 ## Назначение
@@ -22,7 +26,7 @@ stat: REF
 
 ## Уровни владения
 
-Более высокое значение повышает результат соответствующего защитного броска и шансы избежать удара.
+уклонение от атак, освобождение от захватов/удержаний; нельзя добавлять к Защите против неизвестной атаки
 
 ## Границы
 
