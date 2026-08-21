@@ -81,7 +81,7 @@ title: Соло
 titleEn: Solo
 summary: Краткое оригинальное описание материала.
 system: cp2020
-edition: "2.01"
+edition: '2.01'
 source: core-rulebook
 status: draft
 aliases: []
@@ -115,7 +115,7 @@ isCareerSkillFor:
 ```yaml
 die: 10
 entries:
-  - range: "1"
+  - range: '1'
     result: Краткая формулировка результата.
 ```
 

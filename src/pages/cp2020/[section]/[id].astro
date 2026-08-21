@@ -1,11 +1,13 @@
 ---
-import { getCollection, render, type CollectionEntry } from 'astro:content'
+import type { CollectionEntry } from 'astro:content'
+import type { Cp2020CollectionName, Cp2020Section } from '../../../data/cp2020-sections'
+import { getCollection, render } from 'astro:content'
 import Breadcrumbs from '../../../components/Breadcrumbs.astro'
 import RoleDetail from '../../../components/RoleDetail.astro'
 import {
+
+
   cp2020Sections,
-  type Cp2020CollectionName,
-  type Cp2020Section,
 } from '../../../data/cp2020-sections'
 import Layout from '../../../layouts/Layout.astro'
 
@@ -47,7 +49,8 @@ const skills = isRole
       { label: 'Cyberpunk 2020', href: '/cp2020/' },
       { label: section.title, href: `/cp2020/${section.slug}/` },
       { label: entry.data.title },
-    ]} />
+    ]}
+    />
 
     {isRole
       ? (

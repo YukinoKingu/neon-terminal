@@ -8,12 +8,14 @@ interface Props {
 
 const { entry, skills } = Astro.props
 const { data } = entry
-const normalizeSkillName = (name: string) => name
+function normalizeSkillName(name: string) {
+  return name
   .toLocaleLowerCase('ru-RU')
   .replace(/[«»"'().,]/g, '')
   .replace(/\s+/g, ' ')
   .trim()
-const resolveSkill = (name: string) => {
+}
+function resolveSkill(name: string) {
   const normalizedName = normalizeSkillName(name)
   return skills.find(({ data: skillData }) => [skillData.title, ...skillData.aliases]
     .some(alias => normalizeSkillName(alias) === normalizedName))
@@ -121,7 +123,8 @@ const abilityRankDetails = [...data.specialAbility.rank.details]
         <p class="role-section-code">CAREER_SKILLS</p>
         <h2 id="career-skills-title">Профессиональные навыки</h2>
       </div>
-      {data.careerSkills.length > 0 ? (
+      {data.careerSkills.length > 0
+? (
         <ol class="role-skill-list">
           {careerSkills.map((careerSkill, index) => (
             <li>
@@ -138,7 +141,8 @@ const abilityRankDetails = [...data.specialAbility.rank.details]
             </li>
           ))}
         </ol>
-      ) : (
+      )
+: (
         <p class="role-career-skills__empty">Список навыков ожидает проверки по источнику.</p>
       )}
     </section>

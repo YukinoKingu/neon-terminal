@@ -104,36 +104,39 @@ const groups = sectionGroups.map(group => ({
 </Layout>
 
 <script>
-  const searchInput = document.querySelector<HTMLInputElement>('[data-section-search]')
-  const sectionCards = [...document.querySelectorAll<HTMLElement>('[data-section-card]')]
-  const sectionGroups = [...document.querySelectorAll<HTMLElement>('[data-section-group]')]
-  const sectionCount = document.querySelector<HTMLElement>('[data-section-count]')
-  const emptyState = document.querySelector<HTMLElement>('[data-section-empty]')
+const searchInput = document.querySelector<HTMLInputElement>('[data-section-search]')
+const sectionCards = [...document.querySelectorAll<HTMLElement>('[data-section-card]')]
+const sectionGroups = [...document.querySelectorAll<HTMLElement>('[data-section-group]')]
+const sectionCount = document.querySelector<HTMLElement>('[data-section-count]')
+const emptyState = document.querySelector<HTMLElement>('[data-section-empty]')
 
-  const updateSectionSearch = () => {
-    const query = searchInput?.value.trim().toLocaleLowerCase('ru-RU') ?? ''
-    let visibleCount = 0
+function updateSectionSearch() {
+  const query = searchInput?.value.trim().toLocaleLowerCase('ru-RU') ?? ''
+  let visibleCount = 0
 
-    sectionCards.forEach((card) => {
-      const matches = card.textContent?.toLocaleLowerCase('ru-RU').includes(query) ?? false
-      card.hidden = !matches
-      if (matches) visibleCount += 1
-    })
-
-    sectionGroups.forEach((group) => {
-      group.hidden = !group.querySelector('[data-section-card]:not([hidden])')
-    })
-
-    if (sectionCount) sectionCount.textContent = String(visibleCount)
-    if (emptyState) emptyState.hidden = visibleCount > 0
-  }
-
-  searchInput?.addEventListener('input', updateSectionSearch)
-  document.addEventListener('keydown', (event) => {
-    const target = event.target as HTMLElement
-    if (event.key === '/' && !target.closest('input, textarea, select')) {
-      event.preventDefault()
-      searchInput?.focus()
-    }
+  sectionCards.forEach((card) => {
+    const matches = card.textContent?.toLocaleLowerCase('ru-RU').includes(query) ?? false
+    card.hidden = !matches
+    if (matches)
+      visibleCount += 1
   })
+
+  sectionGroups.forEach((group) => {
+    group.hidden = !group.querySelector('[data-section-card]:not([hidden])')
+  })
+
+  if (sectionCount)
+    sectionCount.textContent = String(visibleCount)
+  if (emptyState)
+    emptyState.hidden = visibleCount > 0
+}
+
+searchInput?.addEventListener('input', updateSectionSearch)
+document.addEventListener('keydown', (event) => {
+  const target = event.target as HTMLElement
+  if (event.key === '/' && !target.closest('input, textarea, select')) {
+    event.preventDefault()
+    searchInput?.focus()
+  }
+})
 </script>
