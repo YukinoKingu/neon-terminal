@@ -1,3 +1,9 @@
+- Do not preserve backward compatibility.
+- Choose the simplest implementation that fully meets the current requirements.
+- Prefer established, well-maintained libraries over custom implementations.
+- Fix the cause, not the symptom.
+- Suggest best practices, even if they may require refactoring.
+
 ## Development
 
 When starting the dev server, use background mode:
